@@ -1,0 +1,25 @@
+pkgname="udhcpd-to-zone"
+pkgver="1"
+pkgrel=0
+pkgdesc="Convert udhcpd leases file to partial zone descriptions"
+url="https://gitlab.com/dpzmick/udhcpd-to-zone"
+arch="all"
+license="MIT"
+depends=""
+makedepends="build-base"
+install=""
+subpackages=""
+source="https://gitlab.com/dpzmick/$pkgname/-/archive/$pkgver/$pkgname-$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver/"
+options="!check"
+
+build() {
+	make
+}
+
+package() {
+	mkdir -p $pkgdir/bin
+	install $pkgname $pkgdir/bin/$pkgname
+}
+
+sha512sums="42a72196d656cbfb41c6af453a7f16daf63af773d4c60ffafa847071cda6f5002190bb9f4a2561d3b09e7a4edb4c4867088625c20a4c50143b43f3bd4e99ed8c  udhcpd-to-zone-1.tar.gz"
